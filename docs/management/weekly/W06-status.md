@@ -27,8 +27,6 @@
 
 1. ## **Task Status**
 
-Progress is assessed against the PA3 WBS in [`realPA/PA1-miniTA.docx.md`](realPA/PA1-miniTA.docx.md) and the PA3 schedule in [`gantt/miniTA-gantt-pa3.png`](gantt/miniTA-gantt-pa3.png).
-
 | WBS / task                                                   | Owner            | Planned finish | Status      | % done | Notes                                                                                                                 |
 | :----------------------------------------------------------- | :--------------- | :------------- | :---------- | :----- | :-------------------------------------------------------------------------------------------------------------------- |
 | [3.1.1–3.1.2] C4 Container and Component Diagrams            | Tống Vân Anh     | 04/11/2026     | Done        | 100%   | Initial diagrams identify the web application, backend services, database, file storage and major functional modules. |
@@ -70,10 +68,9 @@ Progress is assessed against the PA3 WBS in [`realPA/PA1-miniTA.docx.md`](realPA
 
 5. ## **Metrics**
 
-| Metric | This week | Total |
-| :----- | :-------- | :---- |
-| tasks  | 3         | 15    |
-
-| Commits | 2 | 7 |
-| Pull requests merged / reviewed |0 | 1 |
-| Open defects (PA5) | N/A | N/A |
+| Metric                          | This week | Total |
+| :------------------------------ | :-------- | :---- |
+| tasks                           | 3         | 15    |
+| Commits                         | 2         | 7     |
+| Pull requests merged / reviewed | 0         | 1     |
+| Open defects (PA5)              | N/A       | N/A   |
