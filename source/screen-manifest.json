@@ -1,0 +1,595 @@
+{
+  "version": 1,
+  "fixedClock": "2025-11-20T09:00:00.000Z",
+  "imagesRoot": "../miniTA-screen-images",
+  "notes": "Single source for the review gallery, screenshot runs and completeness checks. 'sources' and 'outputs' are relative to miniTA-screen-images. Screen IDs, routes and basenames are frozen; extra states are query parameters on the same screen, never new IDs.",
+  "screens": [
+    {
+      "screenId": "SCR-01",
+      "name": "Login",
+      "useCases": [
+        "UC-01"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-01",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "loading"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-01_login.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-01_login.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Demo-only link 'View error state', no loading or disabled state, error copy told the user nothing actionable."
+    },
+    {
+      "screenId": "SCR-02",
+      "name": "Login — error",
+      "useCases": [
+        "UC-01"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-02",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-02_login-error.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-02_login-error.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Error banner only; no per-field state, no recovery guidance, credentials are fixture-only."
+    },
+    {
+      "screenId": "SCR-03",
+      "name": "Access denied",
+      "useCases": [
+        "UC-01"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-03",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-03_access-denied.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-03_access-denied.png"
+      },
+      "status": "ready",
+      "openIssues": [
+        "ISSUE-03",
+        "O-1"
+      ],
+      "audit": "Recovery action sent every role to the dashboard, which a Hiring Manager may not open; no reason code."
+    },
+    {
+      "screenId": "SCR-04",
+      "name": "Applicant Inbox",
+      "useCases": [
+        "UC-06",
+        "UC-07"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-04",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "empty"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-04_applicant-inbox.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-04_applicant-inbox.png"
+      },
+      "status": "ready",
+      "openIssues": [
+        "ISSUE-04"
+      ],
+      "audit": "Manual Apply button, no empty state, score column implied a decision; redesigned with live filters, pipeline counts and N/A for failed extraction."
+    },
+    {
+      "screenId": "SCR-05",
+      "name": "Create / edit job posting",
+      "useCases": [
+        "UC-02"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-05",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "new",
+        "validation"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-05_create-edit-job-posting.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-05_create-edit-job-posting.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Missing department, employment type, location, hiring-manager assignment and Save draft; 'Next' contradicts UC-02."
+    },
+    {
+      "screenId": "SCR-06",
+      "name": "Job postings",
+      "useCases": [
+        "UC-02"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-06",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "empty"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-06_job-postings.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-06_job-postings.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "No status filter or empty state; ambiguous 'Open' action; department missing."
+    },
+    {
+      "screenId": "SCR-07",
+      "name": "Job posting detail",
+      "useCases": [
+        "UC-02",
+        "UC-03"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-07",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "draft",
+        "closed"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-07_job-posting-detail.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-07_job-posting-detail.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Public URL and Copy link were enabled in Draft (BR-08); invented 'Verified' badge; no hiring-manager assignment or close confirmation."
+    },
+    {
+      "screenId": "SCR-08",
+      "name": "Evaluation rubric builder — manual",
+      "useCases": [
+        "UC-03"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-08",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-08_evaluation-rubric-builder.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-08_evaluation-rubric-builder.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Structured editor with live weights and re-approval. The job posting title identifies the rubric."
+    },
+    {
+      "screenId": "SCR-09",
+      "name": "Evaluation rubric builder — error",
+      "useCases": [
+        "UC-03"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-09",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-09_rubric-error.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-09_rubric-error.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "One generic red banner, no field-level errors and no non-positive weight case; rebuilt as summary plus per-field errors."
+    },
+    {
+      "screenId": "SCR-10",
+      "name": "AI rubric draft — JD input",
+      "useCases": [
+        "UC-03"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-10",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "unavailable",
+        "invalid"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-10_ai-rubric-jd-input.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-10_ai-rubric-jd-input.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "No AI-unavailable or timeout state, no JD guidance; the manual fallback is only a text hint."
+    },
+    {
+      "screenId": "SCR-11",
+      "name": "Review and approve AI rubric draft",
+      "useCases": [
+        "UC-03"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-11",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-11_review-ai-rubric-draft.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-11_review-ai-rubric-draft.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Weights used 0.45/0.35/0.20 while SCR-08 used percentages; free-text fields instead of the structured editor."
+    },
+    {
+      "screenId": "SCR-12",
+      "name": "Application form",
+      "useCases": [
+        "UC-04"
+      ],
+      "groups": [
+        "candidate-desktop",
+        "candidate-mobile"
+      ],
+      "route": "/screens/SCR-12",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "duplicate"
+      ],
+      "sources": {
+        "candidate-desktop": "screens/candidate-desktop/SCR-12_application-form.png",
+        "candidate-mobile": "screens/candidate-mobile/SCR-12_application-form.png"
+      },
+      "outputs": {
+        "candidate-desktop": "redesigned/screens/candidate-desktop/SCR-12_application-form.png",
+        "candidate-mobile": "redesigned/screens/candidate-mobile/SCR-12_application-form.png"
+      },
+      "status": "ready",
+      "openIssues": [
+        "ISSUE-01"
+      ],
+      "audit": "Hard-coded questions instead of the job rubric, no duplicate notice, demo-only error link; rebuilt from the approved rubric with file validation and consent."
+    },
+    {
+      "screenId": "SCR-13",
+      "name": "Application form — error",
+      "useCases": [
+        "UC-04"
+      ],
+      "groups": [
+        "candidate-desktop",
+        "candidate-mobile"
+      ],
+      "route": "/screens/SCR-13",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default"
+      ],
+      "sources": {
+        "candidate-desktop": "screens/candidate-desktop/SCR-13_application-form-error.png",
+        "candidate-mobile": "screens/candidate-mobile/SCR-13_application-form-error.png"
+      },
+      "outputs": {
+        "candidate-desktop": "redesigned/screens/candidate-desktop/SCR-13_application-form-error.png",
+        "candidate-mobile": "redesigned/screens/candidate-mobile/SCR-13_application-form-error.png"
+      },
+      "status": "ready",
+      "openIssues": [
+        "ISSUE-01"
+      ],
+      "audit": "Single generic banner, no per-field messages, no file or duplicate error."
+    },
+    {
+      "screenId": "SCR-14",
+      "name": "Application submitted",
+      "useCases": [
+        "UC-04"
+      ],
+      "groups": [
+        "candidate-desktop",
+        "candidate-mobile"
+      ],
+      "route": "/screens/SCR-14",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default"
+      ],
+      "sources": {
+        "candidate-desktop": "screens/candidate-desktop/SCR-14_application-submitted.png",
+        "candidate-mobile": "screens/candidate-mobile/SCR-14_application-submitted.png"
+      },
+      "outputs": {
+        "candidate-desktop": "redesigned/screens/candidate-desktop/SCR-14_application-submitted.png",
+        "candidate-mobile": "redesigned/screens/candidate-mobile/SCR-14_application-submitted.png"
+      },
+      "status": "ready",
+      "openIssues": [
+        "ISSUE-02"
+      ],
+      "audit": "Demo shortcut replaced the emailed link; no email-failure recovery (UC-04 E4) and no reference number."
+    },
+    {
+      "screenId": "SCR-15",
+      "name": "Application status — magic link",
+      "useCases": [
+        "UC-05"
+      ],
+      "groups": [
+        "candidate-desktop",
+        "candidate-mobile"
+      ],
+      "route": "/screens/SCR-15",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "expired",
+        "invalid"
+      ],
+      "sources": {
+        "candidate-desktop": "screens/candidate-desktop/SCR-15_application-status-magic-link.png",
+        "candidate-mobile": "screens/candidate-mobile/SCR-15_application-status-magic-link.png"
+      },
+      "outputs": {
+        "candidate-desktop": "redesigned/screens/candidate-desktop/SCR-15_application-status-magic-link.png",
+        "candidate-mobile": "redesigned/screens/candidate-mobile/SCR-15_application-status-magic-link.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "No replacement-link request on the expired state; stage list did not distinguish Hired from Rejected."
+    },
+    {
+      "screenId": "SCR-16",
+      "name": "Magic link unavailable",
+      "useCases": [
+        "UC-05"
+      ],
+      "groups": [
+        "candidate-desktop",
+        "candidate-mobile"
+      ],
+      "route": "/screens/SCR-16",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "invalid"
+      ],
+      "sources": {
+        "candidate-desktop": "screens/candidate-desktop/SCR-16_link-unavailable.png",
+        "candidate-mobile": "screens/candidate-mobile/SCR-16_link-unavailable.png"
+      },
+      "outputs": {
+        "candidate-desktop": "redesigned/screens/candidate-desktop/SCR-16_link-unavailable.png",
+        "candidate-mobile": "redesigned/screens/candidate-mobile/SCR-16_link-unavailable.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "No email verification flow for a replacement link (UC-05 A1); told the candidate to contact support instead."
+    },
+    {
+      "screenId": "SCR-17",
+      "name": "Applicant detail — CV, matching score, evidence",
+      "useCases": [
+        "UC-06",
+        "UC-07"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-17",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "extraction-failed"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-17_applicant-detail.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-17_applicant-detail.png"
+      },
+      "status": "ready",
+      "openIssues": [
+        "ISSUE-03",
+        "ISSUE-04"
+      ],
+      "audit": "No CV preview, no extraction-failed state, 'Confidence: High' claims a matching basis that is still OPEN; Hiring Manager read-only state not shown."
+    },
+    {
+      "screenId": "SCR-18",
+      "name": "Internal notes",
+      "useCases": [
+        "UC-07"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-18",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-18_internal-notes.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-18_internal-notes.png"
+      },
+      "status": "ready",
+      "openIssues": [
+        "ISSUE-03"
+      ],
+      "audit": "Markdown and @mention features were invented; no Recruiter-only permission note."
+    },
+    {
+      "screenId": "SCR-19",
+      "name": "Human scorecard",
+      "useCases": [
+        "UC-07"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-19",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "incomplete",
+        "hiring-manager"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-19_human-scorecard.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-19_human-scorecard.png"
+      },
+      "status": "ready",
+      "openIssues": [
+        "ISSUE-03"
+      ],
+      "audit": "Criteria and the 1–5 scale are illustrative. The Hiring Manager scenario requires comments and one recommendation for a shortlisted applicant on an assigned job."
+    },
+    {
+      "screenId": "SCR-20",
+      "name": "Update application status",
+      "useCases": [
+        "UC-07"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-20",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "confirmed"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-20_update-application-status.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-20_update-application-status.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Current status was not shown, no confirmation step, status chips read as filters; must stay independent from the scorecard."
+    },
+    {
+      "screenId": "SCR-21",
+      "name": "Recruitment dashboard",
+      "useCases": [
+        "UC-08"
+      ],
+      "groups": [
+        "hr-desktop"
+      ],
+      "route": "/screens/SCR-21",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "empty",
+        "error"
+      ],
+      "sources": {
+        "hr-desktop": "screens/hr-desktop/SCR-21_recruitment-dashboard.png"
+      },
+      "outputs": {
+        "hr-desktop": "redesigned/screens/hr-desktop/SCR-21_recruitment-dashboard.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Time filters were invented; empty and error/retry states missing."
+    },
+    {
+      "screenId": "SCR-22",
+      "name": "Public job page",
+      "useCases": [
+        "UC-04"
+      ],
+      "groups": [
+        "candidate-desktop",
+        "candidate-mobile"
+      ],
+      "route": "/screens/SCR-22",
+      "defaultScenario": "default",
+      "scenarios": [
+        "default",
+        "closed"
+      ],
+      "sources": {
+        "candidate-desktop": "screens/candidate-desktop/SCR-22_public-job-page.png",
+        "candidate-mobile": "screens/candidate-mobile/SCR-22_public-job-page.png"
+      },
+      "outputs": {
+        "candidate-desktop": "redesigned/screens/candidate-desktop/SCR-22_public-job-page.png",
+        "candidate-mobile": "redesigned/screens/candidate-mobile/SCR-22_public-job-page.png"
+      },
+      "status": "ready",
+      "openIssues": [],
+      "audit": "Leaked the internal 'Public' status chip; no full JD or Closed state."
+    }
+  ]
+}

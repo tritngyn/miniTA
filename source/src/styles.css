@@ -1,0 +1,228 @@
+/* Geist Sans, bundled locally (SIL OFL 1.1). No external font requests. */
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/Geist-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/Geist-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('/fonts/Geist-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --minita-canvas: #f3f7f8;
+  --minita-surface: #ffffff;
+  --minita-surface-sunken: #eaf1f4;
+  --minita-ink: #0f172a;
+  --minita-border: #d6e1e7;
+  --minita-border-strong: #748899;
+  --minita-text-secondary: #526477;
+  --minita-text-muted: #5f7283;
+  --minita-primary: #2563eb;
+  --minita-primary-hover: #1d4ed8;
+  --minita-primary-pressed: #1e40af;
+  --minita-link: #1d4ed8;
+  --minita-link-hover: #1e40af;
+  --minita-focus: #2563eb;
+  --minita-navy: #0f172a;
+  --minita-navy-soft: #1e293b;
+  --minita-on-navy: #f8fafc;
+  --minita-on-navy-muted: #cbd5e1;
+  --minita-blue-light: #3b82f6;
+  --minita-blue-soft: #dbeafe;
+  --minita-teal: #14b8a6;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--minita-canvas);
+  color: var(--minita-ink);
+  font-family: 'Geist Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Browser surfaces themed from the palette (selection, caret, scrollbars). */
+::selection {
+  background: var(--minita-blue-soft);
+  color: var(--minita-ink);
+}
+
+html {
+  caret-color: var(--minita-primary);
+  scrollbar-color: #bfd0d9 transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c3d2d9;
+  border: 3px solid var(--minita-canvas);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+a {
+  color: var(--minita-link);
+  text-underline-offset: 3px;
+  transition: color 120ms ease;
+}
+
+a:hover {
+  color: var(--minita-link-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
+  }
+}
+
+/* Keyboard focus ring. !important because MUI injects its own outline reset at
+   runtime, after this stylesheet. Text inputs keep the 2px focus border from
+   the theme and are excluded to avoid a doubled ring. */
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible,
+[tabindex]:not(input):not(textarea):not(select):focus-visible {
+  outline: 2px solid var(--minita-focus) !important;
+  outline-offset: 2px !important;
+}
+
+/* Dark surfaces use the lighter blue so the ring keeps 3:1 against navy. */
+.site-header a:focus-visible,
+.site-header button:focus-visible,
+.rail-link:focus-visible,
+.home-hero a:focus-visible,
+.home-footer a:focus-visible {
+  outline-color: var(--minita-blue-light) !important;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Screenshot mode: no motion, stable layout. */
+html[data-shot='true'] *,
+html[data-shot='true'] *::before,
+html[data-shot='true'] *::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+/* Native file input, themed as a bordered drop row (accessible by default). */
+.file-input {
+  display: block;
+  width: 100%;
+  padding: 14px 12px;
+  background: var(--minita-surface);
+  border: 1px dashed var(--minita-border-strong);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--minita-ink);
+}
+.file-input::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--minita-border-strong);
+  background: var(--minita-canvas);
+  color: var(--minita-ink);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.file-input:hover::file-selector-button {
+  border-color: #526477;
+  background: var(--minita-surface-sunken);
+}
+.file-input:focus-visible {
+  outline: 2px solid var(--minita-focus);
+  outline-offset: 2px;
+  border-color: var(--minita-focus);
+}
+.file-input[aria-invalid='true'] {
+  border-color: #a12825;
+}
+
+/* Checkbox and radio: the real input is visually hidden, so mirror its focus
+   ring on the visible control (MUI marks the root with .Mui-focusVisible). */
+.MuiCheckbox-root.Mui-focusVisible,
+.MuiCheckbox-root:has(input:focus-visible),
+.MuiRadio-root.Mui-focusVisible,
+.MuiRadio-root:has(input:focus-visible) {
+  outline: 2px solid var(--minita-focus) !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* On an invalid field the border is red, so add a ring to keep keyboard focus
+   distinguishable from the error state. */
+.MuiOutlinedInput-root.Mui-error.Mui-focused {
+  outline: 2px solid var(--minita-focus);
+  outline-offset: 2px;
+}
+
+/* Rail links: hover and the current item both show the blue marker. */
+.rail-link {
+  position: relative;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.rail-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 2px;
+  background: transparent;
+}
+.rail-link:hover::before,
+.rail-link[aria-current='page']::before {
+  background: var(--minita-blue-light);
+}
+.rail-link:hover {
+  background: rgba(248, 250, 252, 0.07);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-link {
+    transition: none;
+  }
+}
