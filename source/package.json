@@ -1,0 +1,39 @@
+{
+  "name": "minita-prototype",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "shoot": "npm run build && node scripts/screenshot.mjs",
+    "shoot:one": "node scripts/screenshot.mjs --screen",
+    "check:manifest": "node scripts/check-manifest.mjs",
+    "a11y": "node scripts/a11y-check.mjs",
+    "test:flows": "node scripts/flow-check.mjs",
+    "evidence": "node scripts/screenshot.mjs --evidence",
+    "shoot:home": "node scripts/homepage-shot.mjs",
+    "test:responsive": "node scripts/responsive-check.mjs"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.12",
+    "@mui/material": "^6.4.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.6",
+    "@vitejs/plugin-react": "^4.4.1",
+    "geist": "^1.3.1",
+    "playwright": "^1.52.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}
